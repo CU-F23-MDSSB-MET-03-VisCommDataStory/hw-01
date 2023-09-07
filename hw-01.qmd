@@ -1,0 +1,56 @@
+---
+title: "HW 01 - My interest and two ways to visualize world development"
+author: "Insert your name here"
+format: 
+  html: 
+    code-fold: true
+    embed-resources: true
+    standalone: true
+---
+
+## My interest in visual communication and data storytelling
+
+*Remove this text and write text for Exercise 1.*
+
+## Hans Rosling's famous visualization
+
+```{r}
+#| label: load-packages-and-data
+#| message: false
+library(tidyverse)
+library(gapminder)
+```
+
+*Remove this text for Exercise 2.*
+
+This is a version of the graph which Hans Rosling used in his famous presentation about world development <https://www.youtube.com/watch?v=Z8t4k0Q8e8Y>. 
+
+```{r}
+#| label: rosling-visualization
+#| fig.cap: GDP per capita vs. life expectancy from the gapminder data set as presented by Hans Rosling.
+gapminder |> 
+  filter(year == 1952 | year == 2007) |> 
+  ggplot(mapping = aes(x = gdpPercap, 
+                       y = lifeExp, 
+                       color = continent, 
+                       size = pop)) +
+  geom_point() +
+  facet_wrap(~year) +
+  scale_x_log10(breaks = c(300,3000,30000))
+```
+
+## An alternative visualization 
+
+Roland Paulsen copied the visualization and the presentation style in the video <https://youtu.be/OoIcsj9ysvs?t=31> (starting at 0:31). 
+
+```{r}
+#| label: paulsen-visualization
+#| #| fig.cap: GDP per capita vs. life expectancy from the gapminder data set in the way of Roland Paulsen. 
+
+# Remove this and put your code for Exercise 3
+```
+
+
+## What are the two different graphs emphasizing?
+
+*Remove this text for Exercise 4.*
